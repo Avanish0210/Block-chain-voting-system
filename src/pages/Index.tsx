@@ -5,7 +5,7 @@ import { useVoting } from '@/lib/hooks/useVoting';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, Shield, Lock, Vote, Fingerprint, Cube } from 'lucide-react';
+import { ChevronRight, Shield, Lock, Vote, Fingerprint, Box } from 'lucide-react';
 
 const Index = () => {
   const { isAuthenticated } = useAuth();
@@ -48,7 +48,7 @@ const Index = () => {
     {
       title: '3D Blockchain Visualization',
       description: 'Explore the blockchain in an interactive 3D environment to better understand how votes are stored.',
-      icon: <Cube className="h-10 w-10 text-primary" />
+      icon: <Box className="h-10 w-10 text-primary" />
     }
   ];
   
@@ -91,7 +91,7 @@ const Index = () => {
             
             <Button asChild variant="outline" size="lg">
               <Link to="/visualization">
-                <Cube className="mr-2 h-4 w-4" />
+                <Box className="mr-2 h-4 w-4" />
                 3D Blockchain View
               </Link>
             </Button>

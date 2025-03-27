@@ -7,11 +7,17 @@ import { useVoting } from '@/lib/hooks/useVoting';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion } from 'framer-motion';
+import { blockchain } from '@/lib/models/Blockchain';
 
 function BlockchainModel() {
-  const { blockchain } = useVoting();
+  const { getResults } = useVoting();
   const pointLight = useRef();
   useHelper(pointLight, PointLightHelper, 0.5, 'yellow');
+  
+  // Call getResults to ensure blockchain is up to date
+  useEffect(() => {
+    getResults();
+  }, [getResults]);
   
   return (
     <>
