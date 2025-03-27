@@ -16,6 +16,7 @@ import Vote from "./pages/Vote";
 import About from "./pages/About";
 import Explorer from "./pages/Explorer";
 import NotFound from "./pages/NotFound";
+import Visualization from "./pages/Visualization";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/vote" element={<Vote />} />
               <Route path="/about" element={<About />} />
               <Route path="/explorer" element={<Explorer />} />
+              <Route path="/visualization" element={<Visualization />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

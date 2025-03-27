@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/lib/hooks/useAuth';
@@ -6,7 +5,7 @@ import { useVoting } from '@/lib/hooks/useVoting';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, Shield, Lock, Vote, Fingerprint } from 'lucide-react';
+import { ChevronRight, Shield, Lock, Vote, Fingerprint, Cube } from 'lucide-react';
 
 const Index = () => {
   const { isAuthenticated } = useAuth();
@@ -47,15 +46,14 @@ const Index = () => {
       icon: <Lock className="h-10 w-10 text-primary" />
     },
     {
-      title: 'Biometric Verification',
-      description: 'Advanced biometric verification ensures that each vote is cast by the rightful voter.',
-      icon: <Fingerprint className="h-10 w-10 text-primary" />
+      title: '3D Blockchain Visualization',
+      description: 'Explore the blockchain in an interactive 3D environment to better understand how votes are stored.',
+      icon: <Cube className="h-10 w-10 text-primary" />
     }
   ];
   
   return (
     <Layout>
-      {/* Hero section */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-4">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(var(--primary-rgb),0.05),transparent_65%)]" />
         <motion.div 
@@ -90,6 +88,13 @@ const Index = () => {
                 <Link to="/dashboard">View Results</Link>
               </Button>
             )}
+            
+            <Button asChild variant="outline" size="lg">
+              <Link to="/visualization">
+                <Cube className="mr-2 h-4 w-4" />
+                3D Blockchain View
+              </Link>
+            </Button>
           </div>
         </motion.div>
         
@@ -108,7 +113,6 @@ const Index = () => {
         </motion.div>
       </section>
       
-      {/* Features section */}
       <section className="py-20 px-4 bg-secondary/30">
         <div className="container mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -135,7 +139,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Call to action */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <motion.div 
