@@ -88,10 +88,10 @@ const Vote = () => {
               <p className="text-2xl font-bold">{selectedParty}</p>
             </div>
             
-            <Alert variant="warning" className="mb-6">
-              <AlertTriangle className="h-4 w-4" />
-              <AlertTitle>Important Notice</AlertTitle>
-              <AlertDescription>
+            <Alert className="mb-6 border-amber-500 bg-amber-50 dark:bg-amber-950 dark:border-amber-800">
+              <AlertTriangle className="h-4 w-4 text-amber-600 dark:text-amber-500" />
+              <AlertTitle className="text-amber-800 dark:text-amber-400">Important Notice</AlertTitle>
+              <AlertDescription className="text-amber-700 dark:text-amber-400">
                 Once cast, your vote cannot be changed. This action is permanent and will be recorded on the blockchain.
               </AlertDescription>
             </Alert>
