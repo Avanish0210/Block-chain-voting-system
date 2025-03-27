@@ -85,30 +85,53 @@ function Block({ position, block, index }) {
 const Visualization = () => {
   return (
     <Layout>
-      <div className="container mx-auto py-8 px-4">
+      <div className="container mx-auto py-12 px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
+          className="space-y-8"
         >
-          <h1 className="text-3xl font-bold mb-6">Blockchain Visualization</h1>
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Blockchain Visualization</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Explore the blockchain in an interactive 3D environment. Each block represents a vote or transaction in the system.
+            </p>
+          </div>
           
-          <Card>
-            <CardHeader>
-              <CardTitle>3D Blockchain Viewer</CardTitle>
+          <Card className="overflow-hidden border-none shadow-lg">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 border-b">
+              <CardTitle className="text-2xl">3D Blockchain Viewer</CardTitle>
               <CardDescription>
                 Interactive 3D visualization of the voting blockchain. Click on blocks to see details.
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="h-[600px] w-full bg-black/90 rounded-md overflow-hidden">
+            <CardContent className="p-0">
+              <div className="h-[600px] w-full bg-gradient-to-b from-black/95 to-black/80 overflow-hidden">
                 <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
                   <BlockchainModel />
                 </Canvas>
               </div>
-              <div className="mt-4 text-sm text-muted-foreground">
-                <p>Navigation: Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
-                <p>Interaction: Click on a block to see detailed information about that transaction.</p>
+              <div className="bg-secondary/30 p-6 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-background/80 backdrop-blur-sm p-4 rounded-lg border border-border/50 shadow-sm">
+                    <h3 className="font-medium mb-2 text-sm">Navigation</h3>
+                    <p className="text-sm text-muted-foreground">Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                  </div>
+                  <div className="bg-background/80 backdrop-blur-sm p-4 rounded-lg border border-border/50 shadow-sm">
+                    <h3 className="font-medium mb-2 text-sm">Interaction</h3>
+                    <p className="text-sm text-muted-foreground">Click on a block to see detailed information about that transaction.</p>
+                  </div>
+                  <div className="bg-background/80 backdrop-blur-sm p-4 rounded-lg border border-border/50 shadow-sm">
+                    <h3 className="font-medium mb-2 text-sm">Block Legend</h3>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span className="inline-block w-3 h-3 bg-[#00ff00] rounded-sm"></span>
+                      <span>Genesis Block</span>
+                      <span className="inline-block w-3 h-3 bg-[#2a2a2a] rounded-sm ml-4"></span>
+                      <span>Transaction Block</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
